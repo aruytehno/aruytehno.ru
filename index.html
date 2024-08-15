@@ -827,11 +827,16 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script type="text/javascript">
-    var tomorrow = new Date();
-    tomorrow.setTime(tomorrow.getTime() + (1000*3600*24));
-    document.getElementById("spanDate").innerHTML = tomorrow.getFullYear() - 1994;
-  </script>
+<script type="text/javascript">
+  var birthDate = new Date('1994-03-25'); // дата рождения
+  var today = new Date();
+  var age = today.getFullYear() - birthDate.getFullYear();
+  var m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  document.getElementById("spanDate").innerHTML = age;
+</script>
 
 </body>
 
